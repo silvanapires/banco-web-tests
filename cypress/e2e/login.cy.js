@@ -1,5 +1,5 @@
 describe('Login', () => {
-  it('Login com dados válidos deve permitir entrada no sistema', () => {
+  it('Login com dados válidos deve permitir a entrada no sistema', () => {
 
     //Arrange
     cy.visit('http://localhost:4000')
