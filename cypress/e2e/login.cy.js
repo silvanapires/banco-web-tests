@@ -1,3 +1,5 @@
+const { beforeEach } = require("mocha")
+
 describe('Login', () => {
 beforeEach(() => {
     cy.visit('http://localhost:4000')
@@ -14,7 +16,7 @@ beforeEach(() => {
     cy.contains('h4', 'Realizar Transferência').should('be.visible')
   })
 
-  it.only('Login com dados inválidos não deve permitir a entrada no sistema', () => {
+  it('Login com dados inválidos não deve permitir a entrada no sistema', () => {
     //Act
     cy.get('#username').click().type('julio.lima')
     cy.get('#senha').click().type('15689')
