@@ -2,7 +2,7 @@ const { beforeEach } = require("mocha")
 
 describe('Login', () => {
 beforeEach(() => {
-    cy.visit(cypress.env('URL'))
+    cy.visit('/')
     cy.screenshot('apos-visitar-a-pagina-de-login-do-sistema')
   })
 
