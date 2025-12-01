@@ -8,6 +8,12 @@ beforeEach(() => {
 
   it('Login com dados válidos deve permitir a entrada no sistema', () => {
     //Act
+
+    cy.fixture('credenciais').then((credenciais) => {
+      cy.get('#username').click().type(credenciais.valida.usuario)
+      cy.get('#senha').click().type(credenciais.valida.senha)
+    })
+
     cy.get('#username').click().type('julio.lima')
     cy.get('#senha').click().type('123456')
     cy.contains('button', 'Entrar').click()
@@ -18,8 +24,12 @@ beforeEach(() => {
 
   it('Login com dados inválidos não deve permitir a entrada no sistema', () => {
     //Act
-    cy.get('#username').click().type('julio.lima')
-    cy.get('#senha').click().type('15689')
+
+    cy.fixture('credenciais').then((credenciais) => {
+      cy.get('#username').click().type(credenciais.invalida.usuario)
+      cy.get('#senha').click().type(credenciais.invalida.senha)
+    })
+
     cy.screenshot('apos-preencher-os-dados-de-login')
     cy.contains('button', 'Entrar').click()
 
